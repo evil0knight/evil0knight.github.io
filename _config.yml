@@ -136,17 +136,17 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-page-col: "#FFFFFF"
-text-col: "#404040"
-link-col: "#008AFF"
-hover-col: "#0085A1"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
-navbar-border-col: "#DDDDDD"
-footer-col: "#EAEAEA"
-footer-text-col: "#777777"
-footer-link-col: "#404040"
-footer-hover-col: "#0085A1"
+page-col: "#FFFFFF"          # 背景
+text-col: "#5C5C5C"          # 正文：中灰色
+link-col: "#6B8E23"          # 链接：橄榄绿 (Olive Drab)
+hover-col: "#556B2F"         # 悬停：深橄榄绿
+navbar-col: "#F0F2F0"        # 导航栏：冷灰白
+navbar-text-col: "#5C5C5C"   # 导航文字
+navbar-border-col: "#DCDCDC" # 导航边框
+footer-col: "#F5F5F5"        # 页脚
+footer-text-col: "#888888"   # 页脚文字
+footer-link-col: "#6B8E23"   # 页脚链接
+footer-hover-col: "#556B2F"  # 页脚悬停
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
