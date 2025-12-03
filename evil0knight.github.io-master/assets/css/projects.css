@@ -1,0 +1,304 @@
+/* ========================================
+   PROJECT SHOWCASE - 3D TILTED CARDS
+   ======================================== */
+
+.projects-container {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 50px;
+  padding: 20px;
+}
+
+/* --- 3D Tilted Project Card --- */
+.project-card {
+  position: relative;
+  background: rgba(26, 26, 46, 0.6);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(185, 103, 255, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-color: var(--cyber-purple);
+  box-shadow:
+    0 20px 60px rgba(185, 103, 255, 0.4),
+    0 0 40px rgba(255, 43, 194, 0.3);
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+}
+
+/* --- Project Image Container --- */
+.project-image-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0a0a1f 100%);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(0.8);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.15) rotate(2deg);
+  filter: brightness(1);
+}
+
+/* --- Project Overlay with Links --- */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(185, 103, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: 20px;
+}
+
+.project-link {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.project-card:hover .project-link {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-link:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.project-link:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.project-link:hover {
+  background: #fff;
+  color: var(--cyber-purple);
+  transform: scale(1.2);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* --- Project Info Section --- */
+.project-info {
+  padding: 30px;
+  background: rgba(26, 26, 46, 0.8);
+}
+
+.project-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--cyber-purple);
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--cyber-pink);
+  text-shadow: 0 0 10px var(--cyber-pink-glow);
+}
+
+.project-description {
+  font-size: 1rem;
+  color: var(--cyber-light);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* --- Project Tags --- */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 15px;
+  background: rgba(185, 103, 255, 0.2);
+  border: 1px solid var(--cyber-purple);
+  border-radius: 20px;
+  color: var(--cyber-purple);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--cyber-purple);
+  color: #fff;
+  box-shadow: 0 0 15px var(--cyber-glow);
+}
+
+/* --- Add Project Note --- */
+.add-project-note {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+.add-project-note p {
+  font-size: 1.3rem;
+  color: var(--cyber-light);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* --- Advanced 3D Tilt Effect --- */
+.project-card[data-tilt] {
+  transform-style: preserve-3d;
+}
+
+.project-card[data-tilt] .project-info {
+  transform: translateZ(40px);
+}
+
+.project-card[data-tilt] .project-image {
+  transform: translateZ(20px);
+}
+
+/* --- Parallax Layer Effect --- */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--cyber-glow) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  transform: translateZ(30px);
+}
+
+.project-card:hover::before {
+  opacity: 0.2;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .project-card {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .project-image-container {
+    height: 220px;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+  }
+
+  /* Disable 3D effects on mobile for better performance */
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-info {
+    padding: 20px;
+  }
+
+  .project-link {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
+
+/* --- Loading Animation for Images --- */
+.project-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(185, 103, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* --- Glow Animation on Hover --- */
+@keyframes project-glow {
+  0%, 100% {
+    box-shadow:
+      0 20px 60px rgba(185, 103, 255, 0.4),
+      0 0 40px rgba(255, 43, 194, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 20px 60px rgba(255, 43, 194, 0.5),
+      0 0 50px rgba(185, 103, 255, 0.4);
+  }
+}
+
+.project-card:hover {
+  animation: project-glow 2s ease-in-out infinite;
+}

@@ -1,0 +1,30 @@
+---
+layout: base
+---
+
+{% include header.html type="page" %}
+
+<main class="portfolio-main">
+  {{ content }}
+</main>
+
+<style>
+.portfolio-main {
+  min-height: calc(100vh - 50px);
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio-main .container {
+  max-width: 1200px;
+}
+
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+section:nth-child(even) {
+  background: rgba(15, 15, 26, 0.5);
+}
+</style>
