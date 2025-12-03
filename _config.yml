@@ -93,6 +93,10 @@ share-links-active:
   vk: false
   reddit: false
 
+# Specify the base URL of your website
+url: "https://evil0knight.github.io"
+baseurl: ""
+
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
 url-pretty: "evil0knight.github.io"
